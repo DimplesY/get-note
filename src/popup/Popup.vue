@@ -1,22 +1,6 @@
 <!-- eslint-disable no-console -->
 <script setup lang="ts">
-async function postData(url: string, data: object) {
-  // Default options are marked with *
-  const response = await fetch(url, {
-    method: 'POST', // *GET, POST, PUT, DELETE, etc.
-    mode: 'cors', // no-cors, *cors, same-origin
-    cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-    credentials: 'same-origin', // include, *same-origin, omit
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    redirect: 'follow', // manual, *follow, error
-    referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-    body: JSON.stringify(data), // body data type must match "Content-Type" header
-  })
-  return response.json() // parses JSON response into native JavaScript objects
-}
-
+import { postData } from '~/logic'
 const loading = ref(false)
 
 function htmlToMarkDown(url: string) {
@@ -46,24 +30,27 @@ function handleDownload() {
 </script>
 
 <template>
-  <main class="w-[300px] px-4 py-5 text-center text-gray-700">
-    <div v-show="loading">
-      <eos-icons:bubble-loading class="text-30px" />
-      <div class="mt-[10px]">
-        获取中...
-      </div>
+  <main class="w-[400px] text-center text-gray-700 rounded">
+    <!-- 标题区域 -->
+    <h1 class="font-bold tracking-[5px] text-[15px] text-white bg-blue-500 h-[45px] flex  justify-center items-center">
+      笔记拿来
+    </h1>
+    <!-- 下载地址输入框 -->
+    <div class="w-full px-[10px] px-[5px]">
+      <input v-model="url" class="block outline-none h-[50px] w-full  text-xs" type="text" placeholder="请输入需要下载的文章链接">
     </div>
-    <div v-show="!loading" class="flex flex-col justify-center items-center gap-y-10px">
-      <h1 class="text-[15px]">
-        笔 记 拿 来
-      </h1>
-      <div class="flex justify-center items-center gap-x-10px">
-        <span>网址:</span>
-        <input v-model="url" class="outline-none border-1 border-red-300 border-solid w-[150px] h-[25px] px-[10px]" type="text" placeholder="输入网址即可下载">
-        <button class="hover:text-red-300 ml-[10px]" @click="handleDownload">
-          下载
-        </button>
-      </div>
+    <!-- 下载按钮 -->
+    <div class="w-full px-[10px] h-[50px] flex justify-center items-center">
+      <button class="bg-blue-400 text-white w-[200px] h-[30px] shadow rounded-[5px] hover:bg-blue-500" @click="handleDownload">
+        获得笔记
+      </button>
+    </div>
+
+    <!-- 作者信息 -->
+    <div class="h-[25px] px-[10px] overflow-hidden flex justify-between flex-row-reverse items-center">
+      <a href="https://github.com/DimplesY">
+        <uiw:github class="hover:text-blue-500 text-[15px]" />
+      </a>
     </div>
   </main>
 </template>

@@ -12,6 +12,8 @@ import App from './views/App.vue'
     console.log(`[vitesse-webext] Navigate from page "${data.title}"`)
   })
 
+  console.log('content-script 加载完毕')
+
   // mount component to context window
   const container = document.createElement('div')
   const root = document.createElement('div')

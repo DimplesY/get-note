@@ -17,13 +17,13 @@ export async function getManifest() {
       default_icon: './assets/M.png',
       default_popup: './dist/popup/index.html',
     },
-    // options_ui: {
-    //   page: './dist/options/index.html',
-    //   open_in_tab: true,
-    // },
-    // background: {
-    //   service_worker: './dist/background/index.mjs',
-    // },
+    options_ui: {
+      page: './dist/options/index.html',
+      open_in_tab: true,
+    },
+    background: {
+      service_worker: './dist/background/index.mjs',
+    },
     icons: {
       16: './assets/M.png',
       48: './assets/M.png',
