@@ -93,6 +93,7 @@ export default defineConfig(({ command }) => ({
     terserOptions: {
       mangle: false,
     },
+    minify: 'terser',
     rollupOptions: {
       input: {
         options: r('src/options/index.html'),

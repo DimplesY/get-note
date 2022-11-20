@@ -1,7 +1,7 @@
 {
   "name": "get-note",
   "displayName": "笔记拿来",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "private": true,
   "description": "极简的html转markdown插件",
   "scripts": {
@@ -22,8 +22,12 @@
     "start:chromium": "web-ext run --source-dir ./extension --target=chromium",
     "start:firefox": "web-ext run --source-dir ./extension --target=firefox-desktop",
     "clear": "rimraf extension extension.*",
-    "lint": "eslint '{src,scripts}/**/*.{json,ts,js,vue}'",
+    "lint": "eslint {src,scripts}/**/*.{json,ts,js,vue}",
     "test": "vitest test"
+  },
+  "dependencies": {
+    "ofetch": "^1.0.0",
+    "sitdown": "^1.1.7"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.23.1",
@@ -60,8 +64,5 @@
     "web-ext": "^6.8.0",
     "webext-bridge": "^5.0.4",
     "webextension-polyfill": "^0.9.0"
-  },
-  "dependencies": {
-    "ofetch": "^1.0.0"
   }
 }

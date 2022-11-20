@@ -17,13 +17,13 @@ export async function getManifest() {
       default_icon: './assets/M.png',
       default_popup: './dist/popup/index.html',
     },
-    options_ui: {
-      page: './dist/options/index.html',
-      open_in_tab: true,
-    },
-    background: {
-      service_worker: './dist/background/index.mjs',
-    },
+    // options_ui: {
+    //   page: './dist/options/index.html',
+    //   open_in_tab: true,
+    // },
+    // background: {
+    //   service_worker: './dist/background/index.mjs',
+    // },
     icons: {
       16: './assets/M.png',
       48: './assets/M.png',
@@ -55,13 +55,13 @@ export async function getManifest() {
     },
   }
 
-  if (isDev) {
-    // for content script, as browsers will cache them for each reload,
-    // we use a background script to always inject the latest version
-    // see src/background/contentScriptHMR.ts
-    delete manifest.content_scripts
-    manifest.permissions?.push('webNavigation')
-  }
+  // if (isDev) {
+  //   // for content script, as browsers will cache them for each reload,
+  //   // we use a background script to always inject the latest version
+  //   // see src/background/contentScriptHMR.ts
+  //   delete manifest.content_scripts
+  //   manifest.permissions?.push('webNavigation')
+  // }
 
   return manifest
 }
