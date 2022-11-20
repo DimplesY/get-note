@@ -21,7 +21,7 @@ const loading = ref(false)
 
 function htmlToMarkDown(url: string) {
   loading.value = true
-  postData('https://devtool.tech/api/html-md', { url }).then((result) => {
+  postData('https://0a4edb17-926b-4806-9801-e5685beac83c.bspapp.com/html-md', { url }).then((result) => {
     loading.value = false
     const file = new Blob([result.markdown], { type: 'text/plain;charset=utf-8' })
     const url = URL.createObjectURL(file)

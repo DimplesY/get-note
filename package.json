@@ -1,6 +1,6 @@
 {
   "name": "get-note",
-  "displayName": "拿来",
+  "displayName": "笔记拿来",
   "version": "0.0.1",
   "private": true,
   "description": "极简的html转markdown插件",
